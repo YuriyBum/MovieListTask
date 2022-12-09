@@ -1,6 +1,4 @@
-import { TypedUseSelectorHook, useSelector, useDispatch } from 'react-redux'
-import { createReducer, createAction, combineReducers } from '@reduxjs/toolkit';
-import apiUrl from '../data'
+import { createAction, combineReducers } from '@reduxjs/toolkit';
 
 // Текущие значения опций фильтров по умолчанию
 export const pendingDataInitialState = {
@@ -87,7 +85,7 @@ export const UpdatePendingData = (state = currentState, action = defaultAction) 
 
         switch (action.type) {
           case "applyFilter" :
-            newState = { // Избегаем мутаций
+            newState = { // Избегаем мутаций, для этого переопредляем переменную состояния
               filterData: {
                 page: (field === "page") ? parseInt(newValue) : state.filterData.page,
                 page_size: (field === "page_size") ? parseInt(newValue) : state.filterData.page_size,
@@ -160,7 +158,7 @@ export const UpdatePendingData = (state = currentState, action = defaultAction) 
                 vote_count: (filtr === "vote_count") ? nValue : state.displayOptions.vote_count
               }
             }
-            console.log(newState)
+           // console.log(newState)
           break;
           default : 
           newState = state;

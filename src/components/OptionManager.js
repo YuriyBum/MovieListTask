@@ -8,7 +8,6 @@ const OptionManager = () => {
     const data = useSelector(state => state)
     const dispatch = useDispatch()
     const opts = data.options.displayOptions
-    const optionMatrix = new Map()
     const checkers = []
 
 
@@ -16,7 +15,7 @@ const OptionManager = () => {
 
 
     function UpdateCheckList (event) {
-      console.log(event.target.checked)
+
       dispatch(optionSetup({
         filter: event.target.dataset.option,
         value: event.target.checked
@@ -25,7 +24,7 @@ const OptionManager = () => {
 
     for (let key in opts) {
       ind++
-      optionMatrix.set(key, opts[key])
+
       checkers.push(
         <div key={ind+"_toShow"}>
           <input type="checkbox" data-option={key} onChange={UpdateCheckList} checked={opts[key]} />
@@ -33,10 +32,6 @@ const OptionManager = () => {
         </div>
       )
     }
-
-    console.log(optionMatrix)
-
-
 
     return (
       <div className="film--options">

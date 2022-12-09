@@ -8,7 +8,6 @@ import { DateFilter,
          MultiCheckboxFilter,
          TextFilter,
          CheckboxFilter } from "./filters"
-import Paginator from './Paginator'
 import { dataSetup } from '../redux/reducer'
 import { apiUrl } from '../data'
 
@@ -28,10 +27,7 @@ function FilterList () {
         }
       }
 
-      console.log(vals.options.filterData)
-      
       const requestBody = Object.fromEntries(requestOptions)
-      console.log(requestBody)
 
       const request = await fetch(apiUrl, {
         method: "POST",

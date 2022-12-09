@@ -3,18 +3,17 @@ import { useSelector } from 'react-redux';
 import { translates } from '../data'
 
 const CinemaItem = ({ data }) => {
-  console.log(data)
+  // Получаем данные по фильмам
   const filmData = useSelector(state => state)
-  const toShow = filmData.options.displayOptions
+  const toShow = filmData.options.displayOptions // Какие параметры показывать в карточке
   const visibleOptions = []
-  console.log(toShow)
-  let ind = 0
 
+  let ind = 0
+  // Проходим списку опций и собираем данные для отображения
   for (let key in toShow) {
      let val = toShow[key]
      ind++
-     console.log(val)
-     console.log(data[key])
+
       if (val && data[key]) {
       visibleOptions.push({
         name: translates[key],
@@ -22,8 +21,6 @@ const CinemaItem = ({ data }) => {
       })
      }
   }
-
-  console.log(visibleOptions)
 
     return (
       <div className="cinema--item">

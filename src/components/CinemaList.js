@@ -8,11 +8,8 @@ function CinemaList () {
     const filmData = useSelector(state => state)
     const films = []
 
-    console.log(filmData)
-
     const items = filmData.options.displayData.data 
 
-    console.log(items)
     items.forEach((item, index) => {
       films.push(<CinemaItem key={index+"_film"} data={item} />)
     })

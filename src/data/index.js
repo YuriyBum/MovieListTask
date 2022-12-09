@@ -183,12 +183,13 @@ export const formConfig = {
       type: "number",
       title: "Количество голосов, до"
    },
-   page: {
+   page: {  // Пагинатор на данном этапе реализован как дополнительный фильтр
       type: "number",
       title: "Страница"
    }
  }
 
+ //Отображаемые названия опций
  export const translates = {
    id: "Номер",
    adult: "Для взрослых",
